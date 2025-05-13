@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +31,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.delay
 
 @Composable
 internal fun MainRoute(paddingValues: PaddingValues) {
@@ -43,6 +45,13 @@ private fun MainScreen(paddingValues: PaddingValues) {
 
     val localDensity = LocalDensity.current
     var columnHeightDp by remember { mutableStateOf(0.dp) }
+
+    var isLoading by remember { mutableStateOf(true) }
+
+    LaunchedEffect(Unit) {
+        delay(2000L)
+        isLoading = false
+    }
 
     Scaffold(
         modifier = Modifier
@@ -114,7 +123,7 @@ private fun MainScreen(paddingValues: PaddingValues) {
                                     horizontalAlignment = Alignment.CenterHorizontally,
                                 ) {
                                     when (selectedTabIndex) {
-                                        0 -> YapiKrediTab(horizontalPadding = horizontalPadding)
+                                        0 -> YapiKrediTab(horizontalPadding = horizontalPadding, isLoading = isLoading)
                                         1 -> OtherCardsTab(horizontalPadding = horizontalPadding)
                                     }
                                 }

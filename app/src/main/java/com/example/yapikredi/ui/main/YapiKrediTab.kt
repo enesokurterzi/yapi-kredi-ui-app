@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.example.yapikredi.R
 
 @Composable
-fun YapiKrediTab(modifier: Modifier = Modifier, horizontalPadding: Dp) {
+fun YapiKrediTab(modifier: Modifier = Modifier, horizontalPadding: Dp, isLoading: Boolean) {
     val state = rememberLazyListState()
     val myAccountsCardData = MainCardData(
         color = colorResource(R.color.cooks_bay),
@@ -80,7 +80,8 @@ fun YapiKrediTab(modifier: Modifier = Modifier, horizontalPadding: Dp) {
         Spacer(modifier = Modifier.height(12.dp))
         MainCard(
             modifier = modifier.padding(horizontal = horizontalPadding),
-            mainCardData = myAccountsCardData
+            mainCardData = myAccountsCardData,
+            isLoading = isLoading
         )
         Spacer(modifier = Modifier.height(24.dp))
         Text(
@@ -100,7 +101,8 @@ fun YapiKrediTab(modifier: Modifier = Modifier, horizontalPadding: Dp) {
                     modifier = Modifier
                         .padding(horizontal = 6.dp)
                         .fillParentMaxWidth(0.958f),
-                    mainCardData = cardData
+                    mainCardData = cardData,
+                    isLoading = isLoading
                 )
             }
         }
@@ -134,5 +136,5 @@ fun YapiKrediTab(modifier: Modifier = Modifier, horizontalPadding: Dp) {
 @Preview(showBackground = true, backgroundColor = 0xFF1287DE)
 @Composable
 private fun YapiKrediTabPreview() {
-    YapiKrediTab(horizontalPadding = 16.dp)
+    YapiKrediTab(horizontalPadding = 16.dp, isLoading = false)
 }
