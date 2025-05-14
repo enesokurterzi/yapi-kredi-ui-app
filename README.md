@@ -5,7 +5,7 @@ Description
 
 <p> The app is just ui works of "Yapı Kredi" banking app. Edge to Edge and Predictive back features added. <p>
 
-<table align="center">
+  <table align="center">
   <tr>
     <th>Pages in the app</th>
   </tr>
@@ -18,8 +18,9 @@ Description
   <tr>
     <td>Main Screen</td>
   </tr>
+  </table>
 
-## Tech Stack
+  ## Tech Stack
 
  - `Edge To Edge`:This feature allows app content to extend behind system bars like the status and navigation bars. This creates a more immersive, modern full-screen experience for users.
  - `Predictive Back`:This feature provides a visual preview of the previous screen as the user swipes back, helping them understand where the back gesture will take them. This enhances navigation by making transitions more intuitive and reducing accidental exits from the app.. 
